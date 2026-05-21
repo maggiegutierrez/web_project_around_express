@@ -22,6 +22,8 @@ This project presents a simple but importat Back-end project using not only Node
 
 This project was developed following the Airbnb rules for a better understanding with the necessary exceptions such as 'console.log', '\_', and some others due the project needs. After have instaled Node.js and then Express.js, as part of the fact we have amazing technologies to make coding even easier everytime better.
 
+![alt text](https://github.com/maggiegutierrez/web_project_around_express/blob/64421a76b2c14702bb6074bd23bbee64f6cbfc18/Captura%20de%20pantalla%202026-05-20%20a%20la(s)%2011.17.44%E2%80%AFp.m..png)
+
 ## Project Structure
 
 web_project_around_express/
