@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "express": "^5.2.1",
-    "mongoose": "^9.6.2",
-    "pg-promise": "^12.6.2"
+    "mongoose": "^9.6.2"
   }
 }

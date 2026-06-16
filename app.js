@@ -5,14 +5,20 @@ const { PORT = 3000 } = process.env;
 const userRouter = require("./routes/users");
 const cardsRouter = require("./routes/cards");
 
-const connectDB = async () => {
+/*const connectDB = async () => {
   try {
-    const conn = await mongoose.connect("mongodb://localhost:27017/mydb");
+    const conn = await mongoose.connect("mongodb://localhost:27017/aroundb");
     console.log(`Express ahora sí se ha conectado`);
   } catch (error) {
     console.log(`Error al conectar a MongoDB: ${error.message}`);
   }
-};
+};*/
+
+mongoose.connect("mongodb://localhost:27017/aroundb", {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 
 app.use("/users", userRouter);
 app.use("/cards", cardsRouter);

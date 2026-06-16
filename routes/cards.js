@@ -19,14 +19,12 @@ router.get("/", (req, res) => {
               "No se ha encontrado ninguna tarjeta con esa id",
             );
             error.statusCode = 404;
-            throw error; // Recuerda arrojar un error para que .catch lo maneje en lugar de .then
-          }) // arroja un DocumentNotFoundError
-          .then((cardData) => {
-            res.send(cardData); // omitido porque se arrojó un error
+            throw error;
           })
-          .catch((error) => {
-            // este sí se ejecuta ahora, así que podemos manejar el error y devolver un mensaje adecuado
-          });
+          .then((cardData) => {
+            res.send(cardData);
+          })
+          .catch((error) => {});
         res.json(cards);
       }
     },
