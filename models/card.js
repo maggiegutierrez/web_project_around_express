@@ -1,6 +1,6 @@
-const mongose = require("mongoose");
+const mongoose = require("mongoose");
 
-const cardSchema = new mongose.Schema({
+const cardSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -18,23 +18,23 @@ const cardSchema = new mongose.Schema({
       },
       message: (props) => `${props.value} no es una URL de imagen válida`,
     },
-    owner: {
-      type: mongose.Schema.Types.ObjectId,
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
+    required: true,
+  },
+  likes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
       ref: "user",
-      required: true,
+      default: [],
     },
-    likes: [
-      {
-        type: mongose.Schema.Types.ObjectId,
-        ref: "user",
-        default: [],
-      },
-    ],
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
+  ],
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 
-module.exports = mongose.model("card", cardSchema);
+module.exports = mongoose.model("card", cardSchema);
