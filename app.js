@@ -6,15 +6,19 @@ const userRouter = require("./routes/users");
 const cardsRouter = require("./routes/cards");
 
 app.use(express.json());
+app.use((req, res, next) => {
+  req.user = {
+    _id: "6a3220cd72664f8b3513c9cc",
+  };
+  next();
+});
 
 const connectDB = async () => {
-  console.log(`Intentando conectar a MongoDB...`);
   try {
     const conn = await mongoose.connect("mongodb://localhost:27017/aroundb");
-    console.log(`Express ahora sí se ha conectado`);
 
     app.listen(PORT, () => {
-      console.log(`Still working`);
+      console.log(`Still working!`);
     });
   } catch (error) {
     console.log(`Error al conectar a MongoDB: ${error.message}`);
