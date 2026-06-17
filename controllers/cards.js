@@ -2,12 +2,7 @@ const Card = require("../models/card");
 
 const getCards = async (req, res) => {
   try {
-    const cards = await Card.find(req.params.cardId).orFail(() => {
-      if ((req.params.cardId = null)) {
-        return res.status(404).json({ message: "ID de tarjeta no encontrado" });
-      }
-      throw new Error("Tarjeta con id seleccionada no encontrada");
-    });
+    const cards = await Card.find();
     res.json(cards);
   } catch (err) {
     console.log(err);
